@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 2016/11/15 星期二 22:47:59
+// Generation date: 2016/11/28 星期一 23:29:59
 namespace IMCSystem.Console.IMCSystem.Server.Models
 {
     /// <summary>
@@ -912,30 +912,30 @@ namespace IMCSystem.Console.Default
             return null;
         }
         /// <summary>
-        /// There are no comments for Drugs in the schema.
+        /// There are no comments for Drug in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Drugs")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::IMCSystem.Console.IMCSystem.Server.Models.Drug> Drugs
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Drug")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::IMCSystem.Console.IMCSystem.Server.Models.Drug> Drug
         {
             get
             {
-                if ((this._Drugs == null))
+                if ((this._Drug == null))
                 {
-                    this._Drugs = base.CreateQuery<global::IMCSystem.Console.IMCSystem.Server.Models.Drug>("Drugs");
+                    this._Drug = base.CreateQuery<global::IMCSystem.Console.IMCSystem.Server.Models.Drug>("Drug");
                 }
-                return this._Drugs;
+                return this._Drug;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::IMCSystem.Console.IMCSystem.Server.Models.Drug> _Drugs;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::IMCSystem.Console.IMCSystem.Server.Models.Drug> _Drug;
         /// <summary>
-        /// There are no comments for Drugs in the schema.
+        /// There are no comments for Drug in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
-        public void AddToDrugs(global::IMCSystem.Console.IMCSystem.Server.Models.Drug drug)
+        public void AddToDrug(global::IMCSystem.Console.IMCSystem.Server.Models.Drug drug)
         {
-            base.AddObject("Drugs", drug);
+            base.AddObject("Drug", drug);
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
         private abstract class GeneratedEdmModel
@@ -986,7 +986,7 @@ namespace IMCSystem.Console.Default
     </Schema>
     <Schema Namespace=""Default"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
       <EntityContainer Name=""Container"">
-        <EntitySet Name=""Drugs"" EntityType=""IMCSystem.Server.Models.Drug"">
+        <EntitySet Name=""Drug"" EntityType=""IMCSystem.Server.Models.Drug"">
           <Annotation Term=""Org.OData.Core.V1.OptimisticConcurrency"">
             <Collection>
               <PropertyPath>UpdatedAt</PropertyPath>

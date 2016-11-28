@@ -136,7 +136,6 @@
     <Compile Include="Models\CabinetDevice.cs" />
     <Compile Include="Models\CabinetFloor.cs" />
     <Compile Include="Models\CabinetPosition.cs" />
-    <Compile Include="Models\DataModelInitializer.cs" />
     <Compile Include="Models\Drug.cs" />
     <Compile Include="Models\DrugImage.cs" />
     <Compile Include="Models\Entity.cs" />
@@ -149,7 +148,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.txt" />
+    <Content Include="guides.txt" />
     <None Include="App.config" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

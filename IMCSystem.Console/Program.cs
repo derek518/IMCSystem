@@ -14,7 +14,7 @@ namespace IMCSystem.Console
             string serviceUri = "http://localhost:9999/odata/";
             var container = new Default.Container(new Uri(serviceUri));
 
-            AddDrugs(container);
+            //AddDrugs(container);
             ListAllDrugs(container);
             
 
@@ -23,7 +23,7 @@ namespace IMCSystem.Console
 
         static void ListAllDrugs(Default.Container container)
         {
-            foreach (var p in container.Drugs)
+            foreach (var p in container.Drug)
             {
                 System.Console.WriteLine("{0} {1} {2}", p.Name, p.Code, p.BarCode);
             }
@@ -39,7 +39,7 @@ namespace IMCSystem.Console
                 SuperCode = "123456"
             };
             
-            container.AddToDrugs(drug);
+            container.AddToDrug(drug);
             var serviceResponse = container.SaveChanges();
             foreach (var operationResponse in serviceResponse)
             {
