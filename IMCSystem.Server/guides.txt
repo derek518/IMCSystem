@@ -1,0 +1,7 @@
+﻿NuGet程序包
+1. NLOG.Config
+2. Topshelf.NLOG
+3. Microsoft.AspNet.WebApi.OwinSelfHost
+4. Microsoft.AspNet.OData
+5. EntityFramework
+6. MySQL.Data.Entity

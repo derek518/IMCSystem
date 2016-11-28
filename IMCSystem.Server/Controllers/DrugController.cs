@@ -10,30 +10,29 @@ using System.Web.OData;
 
 namespace IMCSystem.Server.Controllers
 {
-    public class DrugsController : ODataController
+    public class DrugController : ODataController
     {
-        IMCContext db = new IMCContext();
+        IMCContext _db = new IMCContext();
         private bool Exists(int key)
         {
-            return db.Drugs.Any(p => p.Id == key);
+            return _db.Drugs.Any(p => p.Id == key);
         }
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            _db.Dispose();
             base.Dispose(disposing);
         }
 
-        [EnableQuery]
-        public IQueryable<Drug> Get()
+        [EnableQuery(PageSize = 200)]
+        public IHttpActionResult Get()
         {
-            return db.Drugs;
+            return Ok(_db.Drugs.AsQueryable());
         }
 
         [EnableQuery]
-        public SingleResult<Drug> Get([FromODataUri] int key)
+        public IHttpActionResult Get([FromODataUri] int key)
         {
-            IQueryable<Drug> result = db.Drugs.Where(p => p.Id == key);
-            return SingleResult.Create(result);
+            return Ok(_db.Drugs.SingleOrDefault(d => d.Id == key));
         }
 
         public async Task<IHttpActionResult> Post(Drug drug)
@@ -44,8 +43,8 @@ namespace IMCSystem.Server.Controllers
             }
 
             drug.UpdatedAt = drug.CreatedAt = DateTime.Now;
-            db.Drugs.Add(drug);
-            await db.SaveChangesAsync();
+            _db.Drugs.Add(drug);
+            await _db.SaveChangesAsync();
             return Created(drug);
         }
 
@@ -55,7 +54,7 @@ namespace IMCSystem.Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Drugs.FindAsync(key);
+            var entity = await _db.Drugs.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -64,7 +63,7 @@ namespace IMCSystem.Server.Controllers
             drug.Patch(entity);
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {

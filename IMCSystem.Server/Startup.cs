@@ -20,20 +20,27 @@ namespace IMCSystem.Server
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
 
+            config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            ODataModelBuilder builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Drug>("Drugs");
-            config.MapODataServiceRoute(
-                routeName: "ODataRoute",
-                routePrefix: "odata",
-                model: builder.GetEdmModel());
+            config.MapODataServiceRoute("odata", "odata", model: GetModel());
 
             appBuilder.UseWebApi(config);
+        }
+
+        public Microsoft.OData.Edm.IEdmModel GetModel()
+        {
+            ODataModelBuilder builder = new ODataConventionModelBuilder();
+
+            builder.EntitySet<Drug>("Drug");
+
+ 
+
+            return builder.GetEdmModel();
         }
     }
 }

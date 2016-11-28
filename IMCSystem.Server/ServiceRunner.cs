@@ -1,37 +1,40 @@
-﻿using System;
+﻿using IMCSystem.Server.Models;
+using Microsoft.Owin.Hosting;
+using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
-using NLog;
-using Microsoft.Owin.Hosting;
-using IMCSystem.Server.Models;
-using System.IO;
-using System.Data.Entity;
+using System.Timers;
+using Topshelf;
 
 namespace IMCSystem.Server
 {
-    public class App
+    class ServiceRunner : ServiceControl
     {
-        private static readonly App instance = new App();
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-
+        private readonly Logger logger = LogManager.GetCurrentClassLogger();
+        //private Timer _timer = null;
+        //private readonly IScheduler scheduler;
         private IDisposable webApp;
 
-        private App() { }
-
-        public static App Instance
+        public ServiceRunner()
         {
-            get { return instance; }
+            //scheduler = StdSchedulerFactory.GetDefaultScheduler();
+            //_timer = new Timer(1000) { AutoReset = true };
+            //_timer.Elapsed += (sender, eventArgs) => logger.Info(DateTime.Now);
         }
 
-        public void Start()
+        public bool Start(HostControl hostControl)
         {
             logger.Trace("Enter...");
 
+            //_timer.Start();
+
             try
             {
+                //scheduler.Start();
+
                 string baseAddress = "http://localhost:9999/";
                 webApp = WebApp.Start<Startup>(url: baseAddress);
 
@@ -55,15 +58,22 @@ namespace IMCSystem.Server
             }
 
             logger.Trace("Leave...");
+
+            return true;
         }
 
-        public void Stop()
+        public bool Stop(HostControl hostControl)
         {
             logger.Trace("Enter...");
 
+            //_timer.Stop();
+
             if (webApp != null) webApp.Dispose();
+            //scheduler.Shutdown(false);
 
             logger.Trace("Leave...");
+            
+            return true;
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("IMCSystem.Server")]
+[assembly: AssemblyTitle("IMCSystem")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IMCSystem.Server")]
+[assembly: AssemblyProduct("IMCSystem")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("14658c58-274a-4936-9d3b-7f66d4d60687")]
+[assembly: Guid("f976bbf6-d458-4562-8561-4c9d3bf1a59b")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

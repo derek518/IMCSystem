@@ -1,6 +1,5 @@
 namespace IMCSystem.Server.Migrations
 {
-    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -11,7 +10,7 @@ namespace IMCSystem.Server.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator()); //设置Sql生成器为Mysql
+            SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
         }
 
         protected override void Seed(IMCSystem.Server.Models.IMCContext context)
@@ -28,11 +27,6 @@ namespace IMCSystem.Server.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Users.AddOrUpdate(
-                new User() { Name = "张三" },
-                new User() { Name = "李四" }
-            );
-            context.SaveChanges();
         }
     }
 }
